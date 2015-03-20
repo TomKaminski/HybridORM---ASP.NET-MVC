@@ -1,0 +1,127 @@
+﻿@model MvcEfRepoPatternExample.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-horizontal">
+                <h3 class="col-md-offset-1">Autor<span style="color:red">*</span></h3>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.AuthorName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.AuthorName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.AuthorName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.AuthorLastName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.AuthorLastName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.AuthorLastName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.AuthorEmail, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.AuthorEmail, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.AuthorEmail, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <h3 class="col-md-offset-1">Wspołautor</h3>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.CoAuthorName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.CoAuthorName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.CoAuthorName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.CoAuthorLastName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.CoAuthorLastName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.CoAuthorLastName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <h3 class="col-md-offset-1">Opiekun<span style="color:red">*</span></h3>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.KeeperName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.KeeperName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.KeeperName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.KeeperLastName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.KeeperLastName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.KeeperLastName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <h3 class="col-md-offset-1">Uczelnia/szkoła<span style="color:red">*</span></h3>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.UniversityName, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.UniversityName, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.UniversityName, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.UniversityAddress, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.UniversityAddress, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.UniversityAddress, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <h3 class="col-md-offset-1">Referat<span style="color:red">*</span></h3>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.ReportTitle, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.Report.ReportTitle, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.ReportTitle, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Report.ReportSummary, new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(x => x.Report.ReportSummary, new { @class = "form-control pull-right" })
+                        @Html.ValidationMessageFor(x => x.Report.ReportSummary, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn btn-primary" value="Wyślij" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Autor</th>
+                    <th>Współautor</th>
+                    <th>Opiekun</th>
+                    <th>Referat</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.IndexList)
+                {
+                    <tr>
+                        <td>@item.AuthorName @item.AuthorLastName</td>
+                        <td>@item.CoAuthorName @item.CoAuthorLastName</td>
+                        <td>@item.KeeperName @item.KeeperLastName</td>
+                        <td>@item.ReportTitle</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
