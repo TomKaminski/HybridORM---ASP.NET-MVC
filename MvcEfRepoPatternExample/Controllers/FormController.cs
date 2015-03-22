@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using MvcEfRepoPatternExample.Model;
 using MvcEfRepoPatternExample.Service;
@@ -9,6 +10,7 @@ namespace MvcEfRepoPatternExample.Controllers
     public class FormController : Controller
     {
         private readonly IFormService _formService;
+        private const int PageSize = 2;
 
         public FormController(IFormService formService)
         {
@@ -17,12 +19,12 @@ namespace MvcEfRepoPatternExample.Controllers
 
         // GET: Form
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int id=1)
         {
             return View(new IndexViewModel
             {
                 Report = new AddReportViewModel(),
-                IndexList = _formService.GetAll().Select(x=>new IndexListModel
+                IndexList = _formService.GetPagedList(id,PageSize).Select(x=>new IndexListModel
                 {
                     AuthorLastName = x.AuthorLastName,
                     AuthorName = x.AuthorName,
@@ -32,7 +34,12 @@ namespace MvcEfRepoPatternExample.Controllers
                     KeeperLastName = x.KeeperLastName,
                     KeeperName = x.KeeperName,
                     ReportTitle = x.ReportTitle
-                }).ToList()
+                }).ToList(),
+                PagingHelper = new PagingHelper
+                {
+                    ActualPage = id,
+                    TotalPages = Math.Ceiling(Convert.ToDouble(_formService.GetCount()) / Convert.ToDouble(PageSize))
+                }
             });
         }
 
@@ -59,7 +66,7 @@ namespace MvcEfRepoPatternExample.Controllers
             return View(new IndexViewModel
             {
                 Report = model,
-                IndexList = _formService.GetAll().Select(x=>new IndexListModel
+                IndexList = _formService.GetPagedList(1, PageSize).Select(x => new IndexListModel
                 {
                     AuthorLastName = x.AuthorLastName,
                     AuthorName = x.AuthorName,
@@ -69,7 +76,12 @@ namespace MvcEfRepoPatternExample.Controllers
                     KeeperLastName = x.KeeperLastName,
                     KeeperName = x.KeeperName,
                     ReportTitle = x.ReportTitle
-                }).ToList()
+                }).ToList(),
+                PagingHelper = new PagingHelper
+                {
+                    ActualPage = 1,
+                    TotalPages = Math.Ceiling(Convert.ToDouble(_formService.GetCount()) / Convert.ToDouble(PageSize))
+                }
             });
         }
     }

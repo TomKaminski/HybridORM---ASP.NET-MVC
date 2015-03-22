@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using MvcEfRepoPatternExample.Model.Common;
+﻿using MvcEfRepoPatternExample.Model.Common;
 
 namespace MvcEfRepoPatternExample.Repository.Common
 {
-    public interface IGenericRepository<T>:IDapperRepository<T> where T : BaseEntity
+    public interface IGenericRepository<T> : IDapperRepository<T> where T : class
     {
         //IEnumerable<T> GetAll();
         //T GetSingle(Expression<Func<T, bool>> predicate);

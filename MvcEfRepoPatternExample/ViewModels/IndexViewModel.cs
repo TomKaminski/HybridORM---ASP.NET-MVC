@@ -6,6 +6,7 @@ namespace MvcEfRepoPatternExample.ViewModels
     {
         public AddReportViewModel Report { get; set; }
         public List<IndexListModel> IndexList { get; set; }
+        public PagingHelper PagingHelper { get; set; }
     }
 
     public class IndexListModel
@@ -19,4 +20,11 @@ namespace MvcEfRepoPatternExample.ViewModels
         public string KeeperLastName { get; set; }
         public string ReportTitle { get; set; }
     }
+
+    public class PagingHelper
+    {
+        public double TotalPages { get; set; }
+        public int ActualPage { get; set; }
+    }
+
 }

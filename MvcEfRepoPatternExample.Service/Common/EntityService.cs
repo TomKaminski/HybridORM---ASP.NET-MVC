@@ -5,7 +5,7 @@ using MvcEfRepoPatternExample.Repository.Common;
 
 namespace MvcEfRepoPatternExample.Service.Common
 {
-    public abstract class EntityService<T> : IEntityService<T> where T : BaseEntity
+    public abstract class EntityService<T> : IEntityService<T> where T : class
     {
         readonly IUnitOfWork _unitOfWork;
         readonly IGenericRepository<T> _repository;

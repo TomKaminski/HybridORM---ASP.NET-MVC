@@ -1,6 +1,6 @@
-﻿namespace MvcEfRepoPatternExample.Service.Common
-{
-    public interface IService
-    {
-    }
-}
+﻿//namespace MvcEfRepoPatternExample.Service.Common
+//{
+//    public interface IService
+//    {
+//    }
+//}

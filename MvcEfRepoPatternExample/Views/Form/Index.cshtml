@@ -125,3 +125,21 @@
         </table>
     </div>
 </div>
+<nav>
+    <ul class="pagination">
+        <li>
+            <a href="@Url.Action("Index","Form",new{id=Model.PagingHelper.ActualPage-1})" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (var i = 1; i <= Model.PagingHelper.TotalPages; i++)
+        {
+            <li class="@(Model.PagingHelper.ActualPage==i?"active":"")"><a href="@Url.Action("Index","Form",new{id=i})">@i</a></li>
+        }
+        <li>
+            <a href="@Url.Action("Index","Form",new{id=Model.PagingHelper.ActualPage+1})" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

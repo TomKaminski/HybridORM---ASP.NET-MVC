@@ -9,7 +9,7 @@ using MvcEfRepoPatternExample.Model.Common;
 
 namespace MvcEfRepoPatternExample.Repository.Common
 {
-    public class DapperRepository<T>:IDapperRepository<T> where T: BaseEntity
+    public class DapperRepository<T>:IDapperRepository<T> where T: class
     {
         public IDbConnection Connection
         {

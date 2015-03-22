@@ -3,7 +3,7 @@ using MvcEfRepoPatternExample.Model.Common;
 
 namespace MvcEfRepoPatternExample.Repository.Common
 {
-    public class GenericRepository<T> : DapperRepository<T>, IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : DapperRepository<T>, IGenericRepository<T> where T : class
     {
         protected DbContext Entities;
         protected readonly IDbSet<T> Dbset;

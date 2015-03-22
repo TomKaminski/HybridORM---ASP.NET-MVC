@@ -6,7 +6,7 @@ using MvcEfRepoPatternExample.Model.Common;
 
 namespace MvcEfRepoPatternExample.Repository.Common
 {
-    public interface IDapperRepository<T> where T : BaseEntity
+    public interface IDapperRepository<T> where T : class
     {
         IDbConnection Connection { get; }
         T FindById(int id);
