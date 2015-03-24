@@ -20,6 +20,11 @@ namespace MvcEfRepoPatternExample.Repository
         public int GetCount()
         {
             return GetAll().Count();
-        }        
+        }
+
+        public Form GetSingle(int id)
+        {
+            return FindById(id);
+        }
     }
 }

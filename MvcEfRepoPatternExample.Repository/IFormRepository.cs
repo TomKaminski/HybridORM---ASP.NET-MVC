@@ -8,5 +8,6 @@ namespace MvcEfRepoPatternExample.Repository
     {
         IEnumerable<Form> GetPagedList(int page, int pageSize);
         int GetCount();
+        Form GetSingle(int id);
     }
 }

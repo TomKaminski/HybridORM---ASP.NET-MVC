@@ -11,6 +11,7 @@ namespace MvcEfRepoPatternExample.ViewModels
 
     public class IndexListModel
     {
+        public int Id { get; set; }
         public string AuthorName { get; set; }
         public string AuthorLastName { get; set; }
         public string Email { get; set; }

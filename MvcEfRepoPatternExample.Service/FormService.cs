@@ -24,5 +24,10 @@ namespace MvcEfRepoPatternExample.Service
         {
             return _formRepository.GetCount();
         }
+
+        public Form GetFormDetails(int id)
+        {
+            return _formRepository.GetSingle(id);
+        }
     }
 }

@@ -33,7 +33,8 @@ namespace MvcEfRepoPatternExample.Controllers
                     Email = x.AuthorEmail,
                     KeeperLastName = x.KeeperLastName,
                     KeeperName = x.KeeperName,
-                    ReportTitle = x.ReportTitle
+                    ReportTitle = x.ReportTitle,
+                    Id = x.Id
                 }).ToList(),
                 PagingHelper = new PagingHelper
                 {
@@ -75,13 +76,33 @@ namespace MvcEfRepoPatternExample.Controllers
                     Email = x.AuthorEmail,
                     KeeperLastName = x.KeeperLastName,
                     KeeperName = x.KeeperName,
-                    ReportTitle = x.ReportTitle
+                    ReportTitle = x.ReportTitle,
+                    Id = x.Id
                 }).ToList(),
                 PagingHelper = new PagingHelper
                 {
                     ActualPage = 1,
                     TotalPages = Math.Ceiling(Convert.ToDouble(_formService.GetCount()) / Convert.ToDouble(PageSize))
                 }
+            });
+        }
+
+        public ActionResult ReportDetails(int id)
+        {
+            var form = _formService.GetFormDetails(id);
+            return View(new DetailsViewModel
+            {
+                AuthorName = form.AuthorName,
+                CoAuthorName = form.CoAuthorName,
+                AuthorLastName = form.AuthorLastName,
+                KeeperLastName = form.KeeperLastName,
+                KeeperName = form.KeeperName,
+                CoAuthorLastName = form.CoAuthorLastName,
+                ReportTitle = form.ReportTitle,
+                ReportDescription = form.ReportSummary,
+                Email = form.AuthorEmail,
+                UniversityAddress = form.UniversityAddress,
+                UniversityName = form.UniversityName
             });
         }
     }

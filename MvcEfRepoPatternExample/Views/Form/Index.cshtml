@@ -109,6 +109,7 @@
                     <th>Współautor</th>
                     <th>Opiekun</th>
                     <th>Referat</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -119,6 +120,7 @@
                         <td>@item.CoAuthorName @item.CoAuthorLastName</td>
                         <td>@item.KeeperName @item.KeeperLastName</td>
                         <td>@item.ReportTitle</td>
+                        <td>@Html.ActionLink("Szczegóły","ReportDetails",new{id=item.Id},new{@class="btn btn-default"})</td>
                     </tr>
                 }
             </tbody>
